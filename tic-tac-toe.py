@@ -35,4 +35,20 @@ def ask_move(player, board):
 def make_move(player, board, x, y):
     board[x][y] = player
 
+#Функция, которая отслеживает выйгрышный ход
+def check_win(player, board):
+    for i in range(3):
+        #Проверка по строкам
+        if board[i] == [player, player, player]:
+            return True
+        # Проверка по столбцам
+        if board[0][i] == player and board[1][i] == player and board[2][i] == player:
+            return True
+    #проверка по диагонали
+
+    if ((board[0][0] == player and board[1][1] == player and board[2][2] == player)
+        or (board[2][0] == player and board[1][1] == player and board[0][2] == player)):
+        return True
+    return False
+
 ask_and_make_move(player, board)
