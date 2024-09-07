@@ -1,10 +1,28 @@
+# Импортируем библиотеку, для раскраски проей
+from colorama import Fore, Back, Style
 #Функция, которая рисует игровое поле 3х3
+# Создайте функцию, которая рисует и раскрашивает поле
 def draw_board(board):
-    #Запускаем цикл, который проходит по всем 3 строкам доски
-    for i in range(3):
-        #Метод join для объединения в 1 строку
-        print(' | '.join(board[i]))
-        print('---------')
+    # Запустите цикл, который проходит по всем строкам доски
+    for x in range(3):
+        # Запустите цикл, который проходит по всем столбцам доски
+        for y in range(3):
+            if board[x][y] == " ":
+                if y < len(board) - 1:
+                    print(Back.YELLOW + board[x][y] + Style.RESET_ALL, end=' | ')
+                else:
+                    print(Back.YELLOW + board[x][y] + Style.RESET_ALL)
+            elif board[x][y] == "X":
+                if y < len(board) - 1:
+                    print(Fore.RED + 'X' + Style.RESET_ALL, end=' | ')
+                else:
+                    print(Fore.RED + 'X' + Style.RESET_ALL)
+            elif board[x][y] == "O":
+                if y < len(board) - 1:
+                    print(Fore.BLUE + 'O'  + Style.RESET_ALL, end=' | ')
+                else:
+                    print(Fore.BLUE + 'O'  + Style.RESET_ALL)
+        print("---------")
 
 #Функция, которая позволяет делать ход
 def ask_and_make_move(player, board):
