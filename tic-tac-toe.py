@@ -11,7 +11,7 @@ def draw_board(board):
                 if y < len(board) - 1:
                     print(Back.YELLOW + board[x][y] + Style.RESET_ALL, end=' | ')
                 else:
-                    print(Back.YELLOW + board[x][y] + Style.RESET_ALL)
+                    print(Back.YELLOW + board[x][y])
             elif board[x][y] == "X":
                 if y < len(board) - 1:
                     print(Fore.RED + 'X' + Style.RESET_ALL, end=' | ')
@@ -33,7 +33,7 @@ def ask_and_make_move(player, board):
 #Функция, которая позволяет пользователю ввести координаты хода
 def ask_move(player, board):
     # Дать игроку возможность сделать ход
-    x, y = input(f"{player}, введите координаты x и y (например: 1 1): ").strip().split() // Можно и без .strip()
+    x, y = input(f"{player}, введите координаты x и y (например: 1 1): ").strip().split() # Можно и без .strip()
     # Преобразовать координаты в целые числа
     x, y = int(x), int(y)
     # находится ли координата в пределах поля и свободно ли место
