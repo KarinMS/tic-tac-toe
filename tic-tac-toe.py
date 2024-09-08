@@ -11,7 +11,7 @@ def draw_board(board):
                 if y < len(board) - 1:
                     print(Back.YELLOW + board[x][y] + Style.RESET_ALL, end=' | ')
                 else:
-                    print(Back.YELLOW + board[x][y])
+                    print(Back.YELLOW + board[x][y] + Style.RESET_ALL)
             elif board[x][y] == "X":
                 if y < len(board) - 1:
                     print(Fore.RED + 'X' + Style.RESET_ALL, end=' | ')
